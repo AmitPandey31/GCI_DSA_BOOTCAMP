@@ -1,0 +1,21 @@
+void recString(string S,int i, string s, vector<string>& a){
+    if(S.size()<=i){
+        a.push_back(s);
+        return;
+    }
+    recString(S,i+1,s+S[i],a);//no space
+    recString(S,i+1,s+" "+S[i],a);//add space
+}
+
+vector<string>  spaceString(char str[])
+{
+//Your code here
+    vector<string> ans;
+    string S="";
+    for(int i=0;str[i]!='\0';i++)
+        S+=str[i];
+    string s;
+    s+=S[0];//initailize with S[0]
+    recString(S,1,s,ans);//start from index 1
+    return ans;
+} 

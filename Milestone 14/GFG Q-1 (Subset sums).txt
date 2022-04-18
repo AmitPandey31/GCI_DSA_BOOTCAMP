@@ -1,0 +1,26 @@
+class Solution
+{
+public:
+   vector<int> subsetSums(vector<int> arr, int N)
+   {
+       vector<int> res;
+       // Write Your Code here
+       
+       res.push_back(0);
+       int M;
+       int i, j, sum=0;
+       
+       for(j=0;j<N;j++)
+       {
+           M = res.size();
+           for(i=0;i<M;i++)
+           {
+               sum=arr[j]+res[i];
+               res.push_back(sum);
+               sum=0;
+           }
+       }
+       return res;
+       
+   }
+};
